@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('tipo_documento', 10); // Ej: DNI, CE, PAS
             $table->string('num_documento', 20)->unique(); 
             
-            $table->string('password', 6);
+            $table->string('password');
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();
