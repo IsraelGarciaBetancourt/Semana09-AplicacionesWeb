@@ -11,7 +11,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\Models\Cuenta;
 
-#[Fillable(['name', 'email', 'password'])]
+// AQUÍ ESTÁ LA CORRECCIÓN: Agregamos los campos bancarios y quitamos 'email'
+#[Fillable(['name', 'password', 'tipo_documento', 'num_documento'])]
 #[Hidden(['password', 'remember_token'])]
 class User extends Authenticatable
 {
