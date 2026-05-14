@@ -9,15 +9,15 @@ use Illuminate\Database\Eloquent\Attributes\Hidden;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens; // <-- Importación necesaria para Sanctum
 use App\Models\Cuenta;
 
-// AQUÍ ESTÁ LA CORRECCIÓN: Agregamos los campos bancarios y quitamos 'email'
 #[Fillable(['name', 'password', 'tipo_documento', 'num_documento'])]
 #[Hidden(['password', 'remember_token'])]
 class User extends Authenticatable
 {
     /** @use HasFactory<UserFactory> */
-    use HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable; // <-- Trait HasApiTokens añadido aquí
 
     /**
      * Get the attributes that should be cast.
